@@ -8,6 +8,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", function(socket){
@@ -21,6 +22,7 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
-server.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
