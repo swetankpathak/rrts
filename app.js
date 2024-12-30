@@ -22,7 +22,7 @@ app.get("/", function(req, res) {
   res.render("index");
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+const PORT = process.env.PORT || 10000;
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
